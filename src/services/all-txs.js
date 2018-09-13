@@ -17,11 +17,13 @@ import AppServices from './services.module';
 import Pagination from './pagination';
 
 AppServices.factory('allTxs',
-	($http, $q) => (data) => {
+	($http, $q, $stateParams) => (data) => {
 		const params = Object.assign({}, data, {
 			url: '/api/getTransactions',
 			key: 'transactions',
+			currentPage: $stateParams.page,
 		});
 
-		return new Pagination($http, $q, params);
+		const pagination = new Pagination($http, $q, params);
+		return pagination;
 	});

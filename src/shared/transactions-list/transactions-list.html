@@ -69,7 +69,7 @@
 </div>
 <div class="paginator" aria-label="Next/Prev Transactions" data-ng-hide="txs.disabled()">
 	<div class="btn-group" role="group">
-		<button class="btn btn-default less-button bordered-button" data-ng-disabled="!txs.hasPrev" data-ng-click="txs.loadPrev()">Prev</button>
-		<button class="btn btn-default more-button bordered-button" data-ng-disabled="!txs.hasNext" data-ng-click="txs.loadNext()">Next</button>
+		<a class="btn btn-default less-button bordered-button" data-ng-disabled="!txs.hasPrev" href="/txs/{{txs.previousPage}}">Previous</a>
+		<a class="btn btn-default more-button bordered-button" data-ng-disabled="!txs.hasNext" href="/txs/{{txs.nextPage}}">Next</a>
 	</div>
 </div>

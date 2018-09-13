@@ -38,6 +38,12 @@ const Pagination = function ($http, $q, params) {
 	this.hasPrev = false;
 };
 
+Pagination.prototype.setOffset = function () {
+	this.offset = (this.currentPage - 1) * this.limit;
+	this.nextPage = this.currentPage + 1;
+	this.previousPage = this.currentPage - 1;
+};
+
 Pagination.prototype.disable = function () {
 	this.hasNext = false;
 	this.hasPrev = false;
@@ -80,6 +86,7 @@ Pagination.prototype.spliceData = function (data) {
 
 Pagination.prototype.loadData = function () {
 	this.results = [];
+	this.setOffset();
 	this.getData(this.offset, (this.limit + 1), (data) => {
 		if (!angular.isArray(data)) { data = []; }
 		this.spliceData(data);
@@ -100,11 +107,13 @@ Pagination.prototype.loadPrev = function () {
 
 Pagination.prototype.nextOffset = function () {
 	this.currentPage += 1;
+	this.nextPage = this.currentPage + 1;
 	return this.offset += this.limit;
 };
 
 Pagination.prototype.prevOffset = function () {
 	this.currentPage -= 1;
+	this.previousPage = this.currentPage - 1;
 	return this.offset -= this.limit;
 };
 
