@@ -47,7 +47,7 @@
     "angular-gettext": "^2.3.9",
     "angular-naturalsort": "https://github.com/isabello/angular-naturalsort.git",
     "angular-qrcode": "^7.2.0",
-    "angular-resource": "~1.6.4",
+    "angular-resource": "~1.7.8",
     "angular-sanitize": "~1.6.10",
     "angular-ui-bootstrap": "^2.5.0",
     "angular-ui-router": "=1.0.0-rc.1",
